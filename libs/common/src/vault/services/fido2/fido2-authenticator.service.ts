@@ -214,7 +214,8 @@ export class Fido2AuthenticatorService implements Fido2AuthenticatorServiceAbstr
           params.allowCredentialDescriptorList,
           params.rpId
         );
-      } else {
+      }
+      if (cipherOptions.length === 0) {
         cipherOptions = await this.findCredentialsByRp(params.rpId);
       }
 
